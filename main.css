@@ -1,0 +1,836 @@
+@font-face {
+    font-family: "Judson-Bold";
+    src: url(./assets/fonts/Judson-Bold.ttf);
+}
+
+@font-face {
+    font-family: "AcuminPro-Bold";
+    src: url(./assets/fonts/AcuminProBold.otf);
+}
+
+@font-face {
+    font-family: "AcuminPro-ExtraLight";
+    src: url(./assets/fonts/AcuminProExtraLight.otf);
+}
+
+@font-face {
+    font-family: "AcuminPro-Light";
+    src: url(./assets/fonts/AcuminProLight.otf);
+}
+
+@font-face {
+    font-family: "AcuminPro-Medium";
+    src: url(./assets/fonts/AcuminProMedium.otf);
+}
+
+@font-face {
+    font-family: "AcuminPro-Thin";
+    src: url(./assets/fonts/AcuminProThin.otf);
+}
+
+@font-face {
+    font-family: "AcuminPro-Semibold";
+    src: url(./assets/fonts/AcuminProSemibold.otf);
+}
+
+@font-face {
+    font-family: "AcuminPro-Black";
+    src: url(./assets/fonts/AcuminProBlack.otf);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: sans-serif; 
+  line-height: 1.15; 
+  -webkit-text-size-adjust: 100%; 
+  -ms-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(black, 0);
+  font-size: 62.5%;
+}
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+  }
+
+body {
+    margin: 0; 
+    font-family: "AcuminPro-Medium", serif;;
+    font-size: 1.6rem;
+    font-weight: normal;
+    line-height: 1.6;
+    color: black;
+    text-align: left;
+    background-color: #fff; 
+}
+
+
+hr {
+    box-sizing: content-box; 
+    height: 0; 
+    overflow: visible;
+  }
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+    background-color: transparent; 
+}
+
+button {
+    border-radius: 0;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  box-sizing: border-box; 
+  padding: 0;
+}
+
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+
+.container {
+    max-width: 120rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+
+.fullscreen-bg {
+    min-width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.main-header {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-parent {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+}
+
+.nav-brand {
+    font-family: "AcuminPro-ExtraLight";
+    font-size: 2.5rem;
+    text-decoration: none;
+    letter-spacing: 4px;
+    margin-left: 4rem;
+}
+
+.nav-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-link {
+    font-family: "AcuminPro-Semibold";
+    text-decoration: none;
+    display: inline-block;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1.6rem;
+    letter-spacing: 1.8px;
+    padding: 1.5rem 0;
+}
+
+.cool-link {
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+    font-family: "AcuminPro-Semibold";
+    font-size: 1.6rem;
+    letter-spacing: 1.8px;
+    margin-right: 3.5rem;
+    border-top: 2px solid transparent;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cool-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #000;
+    transition: width .3s;
+}
+
+.cool-link:hover::after {
+    width: 100%;
+    transition: width .3s;
+}
+
+.navbar-dropdown {
+    position: relative;
+    margin-right: 3.5rem;
+}
+
+.navbar-dropdown-last {
+    margin-right: 5rem;
+}
+
+.navbar-dropdown:hover > div.nav-dropdown-menu {
+    display: flex;
+}
+
+
+.nav-dropdown-menu {
+    display: none;
+    border-top: 1px solid #000;
+    background: #efefef;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    flex-direction: column;
+    transition: all 2s ease-in;
+    padding: .8rem 1.5rem;
+}
+
+
+.nav-dropdown-link {
+    font-family: "AcuminPro-Medium";
+    font-size: 1.6rem;
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    padding: .8rem 0;
+    letter-spacing: 1.5px;
+}
+
+
+.nav-btn {
+    text-align: center;
+    white-space: nowrap;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    text-decoration: none;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    color: transparent;
+    font-family: "AcuminPro-Semibold";
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #000;
+    background: transparent;
+    letter-spacing: 1.8px;
+}
+
+.nav-btn-gray {
+    background: #93a5bf;
+    color: #fff;
+    margin-left: 2rem;
+    padding: .8rem 1.2rem;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.heading-column {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10rem;
+}
+
+.header-heading {
+    color: #3a446a;
+    font-family: "Judson-Bold";
+    font-size: 6rem;
+    font-weight: bold;
+    display: inline-block;
+    user-select: none;
+    line-height: 1;
+    letter-spacing: 1.2px;
+
+}
+
+.header-subheading {
+    color: #000;
+    display: inline-block;
+    user-select: none;
+    font-family: "AcuminPro-Light";
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: .4px;
+    margin-top: 4.5rem;
+}
+
+
+/* SECTION GREEN MOBILE APP ICONS */
+
+.green-fluid {
+    width: 100%;
+    background-color: #50bf97;
+    display: flex;
+    align-items: center;
+}
+
+.green-flex {
+    display: flex;
+    align-items: flex-start;
+    padding: 3.2rem 0;
+    width: 100%;
+}
+
+.green-flex img {
+    border-radius: 8px;
+}
+
+.green-flex img:first-child {
+    margin-right: 3rem;
+}
+
+.green-paragraph {
+    font-family: "AcuminPro-Semibold";
+    color: #fff;
+    font-weight: 500;
+    margin-left: 5rem;
+    line-height: 1.5;
+    font-size: 2rem;
+    letter-spacing: 1.2px;
+}
+
+
+/* Pionner section */
+
+.pioneer {
+    width: 100%;
+    background: #3a446a;
+    padding: 5rem 0;
+}
+
+.pioneer-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pioneer-flex img {
+    width: 52%;
+    height: 52%;
+}
+
+.pioneer-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.pioneer-heading {
+    font-family: "Judson-Bold";
+    font-weight: bold;
+    font-size: 6rem;
+    display: inline-block;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 10rem;
+}
+
+.pioneer-link-container {
+    display: flex;
+    align-items: center;
+}
+
+.pioneer-link {
+    display: inline-block;
+    font-family: "AcuminPro-Light";
+    font-size: 2.8rem;
+    color: #fff;
+    border-bottom: 1px solid transparent;
+    letter-spacing: 1.8px;
+    margin-bottom: .8rem;
+}
+
+
+
+/* GEt started Section */
+
+.started {
+    width: 100%;
+    background: #fff;
+    color: black;
+    padding: 5rem 0;
+}
+
+.started-heading {
+    color: #0c1628;
+    display: inline-block;
+    font-family: "Judson-Bold";
+    font-weight: bold;
+    font-size: 5.2rem;
+    line-height: 1.4;
+}
+
+.started-subheading {
+    color: #0f192b;
+    font-family: "AcuminPro-Medium";
+    font-size: 2.5rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.started-list-heading {
+    color: #3a446a;
+    font-family: "AcuminPro-Bold";
+    font-weight: bold;
+    font-size: 2rem;
+    display: inline-block;
+    letter-spacing: 1.5px;
+}
+
+.started-list-paragraph {
+    color: #000;
+    font-family: "AcuminPro-Medium";
+    font-weight: 500;
+    font-size: 1.8rem;
+    display: inline-block;
+    opacity: 0.85;
+    margin-top: 1rem;
+}
+
+.started-list-icon-container {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #3a446a;
+    z-index: 55;
+}
+
+
+.started-list {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.started-list-column {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3rem;
+    margin-top: 1rem;
+    width: 80%;
+}
+
+.started-flex {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 40%;
+}
+
+.started-hr {
+    display: block;
+    width: 1px;
+    background: #3a446a;
+    height: 77%;
+    position: absolute;
+    top: 0;
+    left: 27px;
+    z-index: 1;
+}
+
+.list-zindexed {
+    z-index: 55;
+    overflow: hidden;
+    background: #fff;
+}
+
+.started-divider {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 5rem 0;
+}
+
+.started-grow {
+    width: 70%;
+
+}
+
+.img-resp {
+    width: 100%;
+    height: auto;
+}
+
+.started-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    text-decoration: none;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    font-family: "AcuminPro-Bold";
+    font-weight: bold;
+    font-size: 2.4rem;
+    color: #fff;
+    background: #68749b;
+    padding: 1.2rem 3.3rem;
+    align-self: flex-start;
+    letter-spacing: .5px;
+    margin-top: 4rem;
+    
+}
+
+.started-btn > svg {
+    margin-left: 2rem;
+}
+
+
+/* stats section */
+
+.stats {
+    background: linear-gradient(to left top, rgba(104,116,155, 0.5) 0%/*bottom-right color*/, rgba(104,116,155, 0.85) 50% /*middle color*/, rgb(104,116,155) 100% /*top-left color*/), linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1))/*"faked" black background make sure to add last or it will appear before the transparent/colored layer*/;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.stat-heading {
+    font-family: "AcuminPro-ExtraLight";
+    font-size: 5.4rem;
+    color: #fff;
+    font-weight: 400;
+}
+
+.stat-desc {
+    font-family: "AcuminPro-ExtraLight";
+    font-size: 3rem;
+    color: #fff;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+
+/* logos */
+
+.logo-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8rem 0 6rem;
+}
+
+.logo-col {
+    display: flex;
+    flex-direction: column;
+    width: 38%;
+}
+
+.logo-heading {
+    font-family: "Judson-Bold";
+    font-size: 5.2rem;
+    margin-bottom: 4.5rem;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.logo-link {
+    display: inline-block;
+    font-family: "AcuminPro-Light";
+    font-size: 2.8rem;
+    color: black;
+    border-bottom: 1px solid transparent;
+    letter-spacing: 1.8px;
+}
+
+.logo-link svg {
+    margin-left: 1rem;
+}
+
+.logo-container {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo-item {
+    width: 29.5%;
+    display: block;
+    height: auto;
+    margin-bottom: 2rem;
+    margin-left: auto;
+}
+
+.no-auto {
+    margin-left: 1.5rem;
+}
+
+
+/* mobile desc */
+
+.mobile {
+    background: #f1f1f1;
+    width: 100%;
+    padding: 8rem 0 0;
+}
+
+.mobile-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mobile-col {
+    width: 40%;
+}
+
+.mobile-right {
+    width: 58%;
+}
+
+.mobile-right img {
+    width: 100%;
+    height: auto;
+}
+
+.mobile-heading {
+    font-family: "Judson-Bold";
+    font-weight: bold;
+    font-size: 5.6rem;
+    color: black;
+    line-height: 1;
+    margin-bottom: 8rem;
+}
+
+.mobile-desc {
+    font-family: "AcuminPro-Medium";
+    font-weight: 500;
+    color: black;
+    font-size: 2.2rem;
+    margin-bottom: 4.2rem;
+}
+
+.mobile-img {
+    display: flex;
+    align-items: center;
+}
+
+.mobile-img > img {
+    margin-right: 3rem;
+}
+
+.mobile-img img {
+    border-radius: 6px;
+}
+
+
+/* subscribe */
+
+.subscribe {
+    background: #3a446a;
+    width: 100%;
+    padding: 8rem 0;
+}
+
+.subscribe-heading {
+    color: #ffffff60;
+    font-size: 4.5rem;
+    font-family: "AcuminPro-Light";
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 7rem;
+    letter-spacing: .8px;
+}
+
+.sub-highlight {
+    color: #fff;
+}
+
+.subscribe-subheading {
+    font-family: "AcuminPro-Semibold";
+    font-size: 3rem;
+    color: #fff;
+}
+
+.subscribe .started-btn {
+    margin: 0;
+}
+
+.input-group {
+    display: flex;
+    margin-top: 3rem;
+}
+
+.input-group  input {
+    width: 50%;
+    padding: 1rem 1.5rem;
+    margin-right: 3rem;
+    background: #d9dbe1;
+    border: 0;
+}
+
+/* footer */
+
+footer {
+    background: #323c44;
+    padding: 9rem 0;
+}
+
+.foot-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .nav-brand {
+    color: #fff;
+}
+
+.foot-right {
+    display: flex;
+}
+
+.foot-right h4 {
+    font-family: "AcuminPro-Semibold";
+    font-size: 1.7rem;
+    width: 18rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+
+footer hr {
+    width: 100%;
+    color: #fff;
+    background: #fff;
+    height: 1px;
+    border: 0;
+    margin-top: 2rem;
+}
+
+.icon-row img {
+    margin-top: 8rem;
+    width: 25px;
+    height: auto;
+    margin-right: 1.4rem;
+}
+
+.footer-text {
+    color: #fff;
+    font-family: "AcuminPro-ExtraLight";
+    font-size: 1.6rem;
+    font-weight: normal;
+    opacity: .85;
+    margin-top: 3rem;
+    letter-spacing: .6px;
+}
+
+.foot-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.foot-row-right {
+    margin-top: 2rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.foot-right-col {
+    display: flex;
+    flex-direction: column;
+    width: 18rem;
+}
+
+.foot-items {
+    width: 100%;
+    font-family: "AcuminPro-Light";
+    font-size: 1.8rem;
+    padding: .7rem 1.5rem .7rem 0;
+    color: #ffffff99;
+    font-weight: 400;
+}
+
+.with-icon svg {
+    width: 22px;
+    height: auto;
+    margin-right: .5rem;
+}
+
+.with-icon {
+    padding: .7rem 1.5rem .7rem 0;
+}
