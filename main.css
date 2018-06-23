@@ -517,12 +517,12 @@ video {
 
 .started-grow {
     width: 70%;
-
 }
 
 .img-resp {
     width: 100%;
     height: auto;
+    object-fit: cover;
 }
 
 .started-btn {
@@ -634,12 +634,33 @@ video {
     height: auto;
     margin-bottom: 2rem;
     margin-left: auto;
+    filter: saturate(0);
 }
 
 .no-auto {
     margin-left: 1.5rem;
 }
 
+.logo-item img {
+    width: 100%;
+    height: auto;
+}
+
+.last-logo img{
+    display: block;
+    height: 72px;
+    width: auto;
+    margin: 0 auto;
+}
+
+.logo-item:hover {
+    filter: none;
+}
+
+.img-sized {
+    height: 80px;
+    width: auto;
+}
 
 /* mobile desc */
 
