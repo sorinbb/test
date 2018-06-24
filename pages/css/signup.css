@@ -1,0 +1,497 @@
+@font-face {
+    font-family: "Judson-Bold";
+    src: url(../../assets/fonts/Judson-Bold.ttf);
+}
+
+@font-face {
+    font-family: "AcuminPro-Bold";
+    src: url(../../assets/fonts/AcuminProBold.otf);
+}
+
+@font-face {
+    font-family: "AcuminPro-ExtraLight";
+    src: url(../../assets/fonts/AcuminProExtraLight.otf);
+}
+
+@font-face {
+    font-family: "AcuminPro-Light";
+    src: url(../../assets/fonts/AcuminProLight.otf);
+}
+
+@font-face {
+    font-family: "AcuminPro-Medium";
+    src: url(../../assets/fonts/AcuminProMedium.otf);
+}
+
+@font-face {
+    font-family: "AcuminPro-Thin";
+    src: url(../../assets/fonts/AcuminProThin.otf);
+}
+
+@font-face {
+    font-family: "AcuminPro-Semibold";
+    src: url(../../assets/fonts/AcuminProSemibold.otf);
+}
+
+@font-face {
+    font-family: "AcuminPro-Black";
+    src: url(../../assets/fonts/AcuminProBlack.otf);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: sans-serif; 
+  line-height: 1.15; 
+  -webkit-text-size-adjust: 100%; 
+  -ms-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(black, 0);
+  font-size: 62.5%;
+}
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+  }
+
+body {
+    margin: 0; 
+    font-family: "AcuminPro-Medium", serif;;
+    font-size: 1.6rem;
+    font-weight: normal;
+    line-height: 1.6;
+    color: black;
+    text-align: left;
+    background-color: #fff; 
+}
+
+
+hr {
+    box-sizing: content-box; 
+    height: 0; 
+    overflow: visible;
+  }
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+    background-color: transparent; 
+}
+
+button {
+    border-radius: 0;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  box-sizing: border-box; 
+  padding: 0;
+}
+
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+
+.container {
+    max-width: 120rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+
+
+/* nav */
+
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8rem 0 6rem;
+}
+
+.icon-parent {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+}
+
+.nav-brand {
+    font-family: "AcuminPro-ExtraLight";
+    font-size: 2.5rem;
+    text-decoration: none;
+    letter-spacing: 4px;
+    margin-left: 4rem;
+    color: #fff;
+}
+
+.nav-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-link {
+    font-family: "AcuminPro-Semibold";
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1.6rem;
+    letter-spacing: 1.8px;
+    padding: 1.5rem 0;
+}
+
+.cool-link {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-family: "AcuminPro-Semibold";
+    font-size: 1.6rem;
+    letter-spacing: 1.8px;
+    margin-right: 3.5rem;
+    border-top: 2px solid transparent;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cool-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width .3s;
+}
+
+.cool-link:hover::after {
+    width: 100%;
+    transition: width .3s;
+}
+
+.navbar-dropdown {
+    position: relative;
+    margin-right: 3.5rem;
+}
+
+.navbar-dropdown-last {
+    margin-right: 5rem;
+}
+
+.navbar-dropdown:hover > div.nav-dropdown-menu {
+    display: flex;
+}
+
+
+.nav-dropdown-menu {
+    display: none;
+    border-top: 1px solid #000;
+    background: #dddddd;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    flex-direction: column;
+    transition: all 2s ease-in;
+    padding: .8rem 1.5rem;
+}
+
+
+.nav-dropdown-link {
+    font-family: "AcuminPro-Medium";
+    font-size: 1.6rem;
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    padding: .8rem 0;
+    letter-spacing: 1.5px;
+}
+
+
+.nav-btn {
+    text-align: center;
+    white-space: nowrap;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    text-decoration: none;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    color: transparent;
+    font-family: "AcuminPro-Semibold";
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    background: transparent;
+    letter-spacing: 1.8px;
+}
+
+.nav-btn-gray {
+    background: #fff;
+    color: #93a5bf;
+    margin-left: 2rem;
+    padding: .8rem 1.2rem;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+.fullscrn {
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(to left top, rgba(104,116,155, 0.5) 0%/*bottom-right color*/, rgba(104,116,155, 0.85) 50% /*middle color*/, rgb(104,116,155) 100% /*top-left color*/), linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1))/*"faked" black background make sure to add last or it will appear before the transparent/colored layer*/;
+}
+
+
+
+.form-flex {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.log-heading {
+    color: #fff;
+    font-family: "AcuminPro-ExtraLight";
+    opacity: .82;
+    font-size: 3.2rem;
+    font-weight: 400;
+    letter-spacing: .5px;
+    margin-bottom: 1.8rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 5.2rem 4rem;
+    width: 52rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.input-block {
+    width: 100%;
+    padding: 1.3rem 2rem;
+    margin-bottom: 2rem;
+    font-family: "AcuminPro-Medium";
+    border: 1px solid #93a5bf70;
+    font-size: 1.6rem;
+}
+
+.input-group input::-webkit-input-placeholder {
+    opacity: .5;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+
+.input-group span {
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: 500;
+    opacity: .8;
+    margin-left: .5rem;
+}
+
+.input-row input[type="checkbox"] {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 0;
+    background: #fff;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: .6rem;
+    margin-bottom: 2rem;
+}
+
+.input-row input {
+    margin-right: 1rem;
+}
+
+
+.partner-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    text-decoration: none;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    font-family: "AcuminPro-Medium";
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: #fff;
+    background: #68749b;
+    padding: .7rem 2rem;
+    align-self: flex-start;
+    letter-spacing: .6px;    
+    opacity: .9;
+    margin-top: .6rem;
+}
+
+.partner-btn > svg {
+    margin-left: 2rem;
+}
+
+
+.text-group {
+    color: #fff;
+    margin: 1.8rem 0 0;
+}
+
+.log-link {
+    display: inline-block;
+    color: #fff;
+    font-family: "AcuminPro-ExtraLight";
+    opacity: .82;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-right: .5rem;
+    margin-left: .5rem;
+    margin-top: 2rem;
+}
+
+.bg-img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 68vh;
+    height: auto;
+}
+
+.first-flex {
+    display: flex;
+    justify-content: space-between
+}
+
+.input-half {
+    width: 47%;
+    padding: 1.3rem 2rem;
+    margin-bottom: 2rem;
+    font-family: "AcuminPro-Medium";
+    border: 1px solid #93a5bf70;
+    font-size: 1.6rem;
+}
+
+
+.captcha {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 0;
+    border: 1px solid #93a5bf70;
+    margin-bottom: 1rem;
+}
+
+.captcha img {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin-left: 1rem;
+}
+
+
+.tab-row {
+    display: flex;
+    width: 52rem;
+    background: #fff;
+}
+
+.tab-row div:first-child {
+    border-right: 1px solid #93a5bf;
+}
+
+.tab-row div:last-child {
+    border-left: 1px solid #93a5bf;
+}
+
+.tab-item {
+    width: 50rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid #93a5bf;
+    background: #f4f5f8;
+    cursor: pointer;
+}
+
+.tab-row .active {
+    background: #fff !important;
+    border: 0 !important;
+}
+
+.tab-text {
+    font-family: "AcuminPro-Medium";
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    opacity: .68;
+}
