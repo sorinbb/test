@@ -16,7 +16,9 @@
             <source src="./assets/iota-homepage-final.ogv" type="video/ogg">
             <source src="./assets/iota-homepage-final.mp4" type="video/mp4">
             <img class="img-fluid" src="./assets/Panel-1.png" alt="">
+            <div class="border-lines"></div>
         </video>
+        <img src="./assets/svg/lines.svg" class="abs-line-img" />
         <header class="main-header">
             <nav class="main-nav">
                 <div class="container nav-flex">
@@ -39,7 +41,7 @@
                         <a href="#" class="nav-brand">INSIGHTS NETWORK</a>
                     </div>
                     <div class="nav-right">
-                        <a href="#" class="cool-link lined">CREATE SURVEY</a>
+                        <a href="https://requesters.insights.network/requester/" class="cool-link lined">CREATE SURVEY</a>
                         <div class="navbar-dropdown">
                             <a href="#" class="nav-link">OUR APP</a>
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 451.847 451.847" style="enable-background:new 0 0 451.847 451.847;" xml:space="preserve">
@@ -48,8 +50,9 @@
                                 </g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
                             </svg>
                             <div class="nav-dropdown-menu">
-                                <a href="#" class="nav-dropdown-link">Android</a>
-                                <a href="#" class="nav-dropdown-link">iOS</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.instar.wallet&hl=en" class="nav-dropdown-link">Android</a>
+                                <a href="https://itunes.apple.com/app/id1332546984" class="nav-dropdown-link">iOS</a>
+                                <a href="./pages/products.html" class="nav-dropdown-link">Products</a>
                             </div>
                         </div>
                         <div class="navbar-dropdown navbar-dropdown-last">
@@ -61,13 +64,27 @@
                             </svg>
                             <div class="nav-dropdown-menu">
                                 <a href="./pages/about.html" class="nav-dropdown-link">About Us</a>
-                                <a href="./pages/resources.html" class="nav-dropdown-link">Resources</a>
+                                <a href="./pages/tabs.html" class="nav-dropdown-link">Resources</a>
                                 <a href="./pages/tabs.html" class="nav-dropdown-link">Roadmap</a>
                                 <a href="./pages/contact.html" class="nav-dropdown-link">Contact</a>
                             </div>
                         </div>
                         <a href="./pages/login.html"><button class="nav-btn">LOG IN</button></a>
                         <a href="./pages/signup.html"><button class="nav-btn nav-btn-gray">SIGN UP</button></a>
+                    </div>
+                    <div class="menu-burger">
+                        <img src="./assets/svg/menu.svg" class="burger-icon" />
+                        <div class="show-menu hide-menu" id="resp-menu">
+                                <a href="https://requesters.insights.network/requester/" class="nav-dropdown-link">Create Survey</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.instar.wallet&hl=en" class="nav-dropdown-link">Android</a>
+                                </br>
+                                <a href="https://itunes.apple.com/app/id1332546984" class="nav-dropdown-link">iOS</a></br>
+                                <a href="./pages/products.html" class="nav-dropdown-link">Products</a>
+                                <a href="./pages/about.html" class="nav-dropdown-link">About Us</a>
+                                <a href="./pages/tabs.html" class="nav-dropdown-link">Resources</a>
+                                <a href="./pages/tabs.html" class="nav-dropdown-link">Roadmap</a>
+                                <a href="./pages/contact.html" class="nav-dropdown-link">Contact</a>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -267,12 +284,16 @@
                     <h1 class="mobile-heading">Our App lorem <br />ipsum amet</h1>
                     <p class="mobile-desc">Easily distribute surveys, lorem ipsum <br />dolor sit amet. Consecteuret minoapale.</p>
                     <div class="mobile-img">
-                        <img src="./assets/img/androind-app.png" />
-                        <img src="./assets/img/ios-app.jpg" />
+                        <a href="https://play.google.com/store/apps/details?id=com.instar.wallet&hl=en">
+                            <img src="./assets/img/androind-app.png" />
+                        </a>
+                        <a href="https://itunes.apple.com/app/id1332546984">
+                            <img src="./assets/img/ios-app.jpg" />
+                        </a>
                     </div>
                 </div>
                 <div class="mobile-right">
-                    <img src="./assets/img/mobiles.png" />
+                    <img src="./assets/svg/twophones.svg" />
                 </div>
             </div>
         </div>
@@ -326,10 +347,18 @@
             <div class="foot-row">
                 <div class="icon-col">
                     <div class="icon-row">
+                        <a href="https://t.me/InsightsNetwork">
                             <img src="./assets/svg/TEL.svg" />
+                        </a>
+                        <a href="https://medium.com/insightsnetwork">
                             <img src="./assets/svg/MMM.svg" />
+                        </a>
+                        <a href="https://twitter.com/instartoken">
                             <img src="./assets/svg/TWITTER.svg" />
+                        </a>
+                        <a href="https://www.reddit.com/r/instar/">
                             <img src="./assets/svg/PP.svg" />
+                        </a>
                     </div>
                     <p class="footer-text">Insights 2017 &copy; All rights reserved</p>
                 </div>
@@ -363,5 +392,16 @@
             </div>
         </div>
     </footer>
+
+
+    <script>
+        const btn = document.querySelector('.burger-icon');
+        function myFunction() {
+            var element = document.getElementById("resp-menu");
+            element.classList.toggle("hide-menu");
+        }
+
+        btn.addEventListener('click', myFunction)
+    </script>
 </body>
 </html>

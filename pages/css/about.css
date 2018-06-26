@@ -324,6 +324,15 @@ ul  li {
     cursor: pointer;
 }
 
+@media only screen and (max-width: 500px) {
+   ul li {
+    margin-right: 2.5rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+   }
+}
+
+
 /* about */
 
 .about-section {
@@ -334,13 +343,13 @@ ul  li {
 .about-flex {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start
 }
 
 .about-item {
     display: flex;
     justify-content: space-between;
-    width: 32.5%;
+    width: 33%;
     margin-bottom: 7rem;
 }
 
@@ -529,6 +538,63 @@ ul  li {
     margin-left: auto;
 }
 
+
+@media only screen and (max-width: 650px) {
+    .about-heading {
+        font-size: 4rem;
+    }
+
+    .about-paragraph {
+        font-size: 2.2rem;
+    }
+
+    .join-btn > svg {
+        margin-left: 7.5rem;
+    }
+}
+
+@media only screen and (max-width: 1040px) {
+    .about-item {
+        width: 46.5%;
+    }
+ }
+
+ @media only screen and (max-width: 750px) {
+    .about-item {
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-flex {
+        justify-content: center;
+    }
+
+    .about-icon-row {
+        display: flex;
+        justify-content: center;
+    }
+ }
+
+
+ @media only screen and (max-width: 1040px) {
+    .about-row-parent {
+        width: 46.5%;
+    }
+ }
+
+ @media only screen and (max-width: 1040px) {
+    .about-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-row-parent {
+        width: 80%;
+    }
+ }
 
 /* community */
 
@@ -745,4 +811,138 @@ footer hr {
 
 .with-icon {
     padding: .7rem 1.5rem .7rem 0;
+}
+
+
+footer {
+    background: #323c44;
+    padding: 9rem 0;
+}
+
+.foot-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .nav-brand {
+    color: #fff;
+}
+
+.foot-right {
+    display: flex;
+}
+
+.foot-right h4 {
+    font-family: "AcuminPro-Semibold";
+    font-size: 1.7rem;
+    width: 18rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+
+footer hr {
+    width: 100%;
+    color: #fff;
+    background: #fff;
+    height: 1px;
+    border: 0;
+    margin-top: 2rem;
+}
+
+.icon-row img {
+    margin-top: 8rem;
+    width: 25px;
+    height: auto;
+    margin-right: 1.4rem;
+}
+
+.footer-text {
+    color: #fff;
+    font-family: "AcuminPro-ExtraLight";
+    font-size: 1.6rem;
+    font-weight: normal;
+    opacity: .85;
+    margin-top: 3rem;
+    letter-spacing: .6px;
+}
+
+.foot-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.foot-row-right {
+    margin-top: 2rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.foot-right-col {
+    display: flex;
+    flex-direction: column;
+    width: 18rem;
+}
+
+.foot-items {
+    width: 100%;
+    font-family: "AcuminPro-Light";
+    font-size: 1.8rem;
+    padding: .7rem 1.5rem .7rem 0;
+    color: #ffffff99;
+    font-weight: 400;
+}
+
+.with-icon svg {
+    width: 22px;
+    height: auto;
+    margin-right: .5rem;
+}
+
+.with-icon {
+    padding: .7rem 1.5rem .7rem 0;
+}
+
+@media only screen and (max-width: 880px) {
+    .foot-right {
+        display: none;
+    }
+
+    .foot-flex {
+        justify-content: center;
+    }
+
+    .foot-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .icon-row {
+        display: flex;
+        justify-content: center;
+    }
+
+    .foot-row-right {
+        width: 100%;
+        justify-content: space-between;
+        text-align: center;
+        margin-top: 3rem;
+    }
+
+    .foot-right-col {
+        width: 30%;
+    }
+}
+
+@media only screen and (max-width: 880px) {
+    .foot-row-right {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .foot-right-col {
+        width: 100%;
+        margin-bottom: 3.5rem;
+    }
 }
