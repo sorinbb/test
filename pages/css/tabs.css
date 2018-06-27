@@ -400,6 +400,7 @@ ul  li {
 
     ul li {
         margin-left: 0;
+        margin-right: 0;
     }
 
 }
@@ -486,6 +487,7 @@ ul  li {
 
 #roadmap {
     padding-bottom: 7rem;
+    overflow: hidden !important;
 }
 
 .road-list {
@@ -639,6 +641,7 @@ ul  li {
 
     .road-list {
         border: 0;
+        margin-top: 5rem;
     }
 
     .road-list p:not(:last-child) {

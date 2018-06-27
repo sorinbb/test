@@ -228,6 +228,7 @@ button::-moz-focus-inner,
     flex-direction: column;
     transition: all 2s ease-in;
     padding: .8rem 1.5rem;
+    z-index: 40;
 }
 
 
@@ -327,7 +328,6 @@ button::-moz-focus-inner,
 /*  gradient */
 
 .gradient {
-    margin-top: 11rem;
     height: 48rem;
     width: 100%;
     background: linear-gradient(to left top, rgba(104,116,155, 0.5) 0%/*bottom-right color*/, rgba(104,116,155, 0.85) 50% /*middle color*/, rgb(104,116,155) 100% /*top-left color*/), linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1))/*"faked" black background make sure to add last or it will appear before the transparent/colored layer*/;

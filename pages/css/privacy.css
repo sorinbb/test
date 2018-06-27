@@ -296,7 +296,7 @@ button::-moz-focus-inner,
 }
 
 .show-menu {
-    display: block;;
+    display: block;
     border-top: 1px solid #000;
     background: #efefef;
     position: absolute;

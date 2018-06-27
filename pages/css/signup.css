@@ -135,7 +135,6 @@ button::-moz-focus-inner,
 
 /* nav */
 
-
 .main-nav {
     display: flex;
     justify-content: space-between;
@@ -225,7 +224,7 @@ button::-moz-focus-inner,
 .nav-dropdown-menu {
     display: none;
     border-top: 1px solid #000;
-    background: #fff;
+    background: #efefef;
     position: absolute;
     top: 50px;
     left: 50%;
@@ -234,7 +233,6 @@ button::-moz-focus-inner,
     flex-direction: column;
     transition: all 2s ease-in;
     padding: .8rem 1.5rem;
-    z-index: 25;
 }
 
 
@@ -310,11 +308,25 @@ button::-moz-focus-inner,
     flex-direction: column;
     transition: all 2s ease-in;
     padding: .8rem 1.5rem;
+    z-index: 44;
 }
 
 .hide-menu {
     display: none;
 }
+
+
+@media only screen and (max-width: 1100px) {
+    .menu-burger {
+        display: block;
+    }
+
+    .nav-right {
+        display: none !important;
+    } 
+
+}
+
 
 
 .fullscrn {
