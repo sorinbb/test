@@ -140,7 +140,7 @@ button::-moz-focus-inner,
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8rem 0 6rem;
+    padding: 7rem 0;
 }
 
 .icon-parent {
@@ -225,7 +225,7 @@ button::-moz-focus-inner,
 .nav-dropdown-menu {
     display: none;
     border-top: 1px solid #000;
-    background: #dddddd;
+    background: #fff;
     position: absolute;
     top: 50px;
     left: 50%;
@@ -234,6 +234,7 @@ button::-moz-focus-inner,
     flex-direction: column;
     transition: all 2s ease-in;
     padding: .8rem 1.5rem;
+    z-index: 25;
 }
 
 
@@ -271,8 +272,8 @@ button::-moz-focus-inner,
 }
 
 .nav-btn-gray {
-    background: #fff;
-    color: #93a5bf;
+    background: #93a5bf;
+    color: #fff;
     margin-left: 2rem;
     padding: .8rem 1.2rem;
 }
@@ -283,7 +284,37 @@ button::-moz-focus-inner,
     align-items: center;
 }
 
+.menu-burger {
+    display: none;
+    position: relative;;
+}
 
+.menu-burger img {
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+}
+
+#resp-menu {
+    position: absolute;
+    right: 0;
+    top: 50px;
+}
+
+.show-menu {
+    display: block;;
+    border-top: 1px solid #000;
+    background: #efefef;
+    position: absolute;
+    width: 150px;
+    flex-direction: column;
+    transition: all 2s ease-in;
+    padding: .8rem 1.5rem;
+}
+
+.hide-menu {
+    display: none;
+}
 
 
 .fullscrn {

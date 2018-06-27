@@ -134,13 +134,11 @@ button::-moz-focus-inner,
 
 
 /* nav */
-
-
 .main-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8rem 0 6rem;
+    padding: 6rem 0;
 }
 
 .icon-parent {
@@ -280,6 +278,51 @@ button::-moz-focus-inner,
 .nav-right {
     display: flex;
     align-items: center;
+}
+
+.menu-burger {
+    display: none;
+    position: relative;;
+}
+
+.menu-burger img {
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+}
+
+#resp-menu {
+    position: absolute;
+    right: 0;
+    top: 50px;
+}
+
+.show-menu {
+    display: block;;
+    border-top: 1px solid #000;
+    background: #efefef;
+    position: absolute;
+    width: 150px;
+    flex-direction: column;
+    transition: all 2s ease-in;
+    padding: .8rem 1.5rem;
+    z-index: 55;
+}
+
+.hide-menu {
+    display: none;
+}
+
+
+@media only screen and (max-width: 1100px) {
+    .menu-burger {
+        display: block;
+    }
+
+    .nav-right {
+        display: none;
+    } 
+
 }
 
 
@@ -627,6 +670,22 @@ ul  li {
 }
 
 
+@media only screen and (max-width: 840px) {
+    .stats {
+        background: #fff;
+    }
+
+    .stats * {
+        color: #000 !important;
+    }
+
+    .stat-row {
+        flex-direction: column;
+        padding: 2.5rem 0;
+    }
+}
+
+
 .community-col {
     display: flex;
     flex-direction: column;
@@ -681,6 +740,22 @@ ul  li {
 }
 
 
+@media only screen and (max-width: 980px) {
+    .community-item {
+        width: 47.5%;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .community-item {
+        width: 85%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center
+    }
+}
+
+
 .social-row {
     display: flex;
     justify-content: space-between;
@@ -719,6 +794,23 @@ ul  li {
     margin-top: 4rem;
 }
 
+
+@media only screen and (max-width: 780px) {
+    .social-item {
+        width: 50%;
+        margin-bottom: 5rem;
+    }
+
+    .social-row {
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .social-item {
+        width: 85%;
+    }
+}
 
 
 /* footer */
