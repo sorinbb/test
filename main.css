@@ -115,6 +115,10 @@ input[type="checkbox"] {
   padding: 0;
 }
 
+video {
+    outline: 0 !important;
+}
+
 
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
@@ -138,7 +142,7 @@ button::-moz-focus-inner,
     position: relative;
 }
 
-video {
+#main-video {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -399,7 +403,7 @@ video {
 }
 
 @media only screen and (max-width: 890px) {
-    video {
+    #main-video {
         display: none;
     }
 
@@ -480,16 +484,17 @@ video {
 
 .pioneer {
     width: 100%;
-    background: #3a446a;
+    background: #2f3864;
     padding: 5rem 0;
 }
 
 .pioneer-flex {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 }
 
-.pioneer-flex img {
+.pioneer-flex video {
     width: 52%;
     height: 52%;
 }
@@ -553,6 +558,13 @@ video {
 
     .pioneer-link {
         font-size: 1.7rem;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .pioneer-flex video {
+        width: 80%;
+        height: 80%;
     }
 }
 

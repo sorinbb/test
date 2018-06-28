@@ -303,74 +303,13 @@
         <div id="blog" class="panel">
             <div class="container">
                 <div class="blog-flex">
-                    <div class="blog-column">
-                        <div class="blog-item">
-                            <img src="https://cdn-images-1.medium.com/fit/c/400/400/1*QjGnIU_uBxx_svbJsvFOjQ.jpeg" />
-                            <div class="blog-content">
-                                <!-- <h6 class="blog-date">April 9 2018</h6> -->
-                                <h2 class="blog-heading">InsightsNetwork</h2>
-                                <p class="blog-text">The New Protocol for Exchanging Data. Connecting Requesters and Providers....</p>
-                                <a href="https://medium.com/insightsnetwork"><h5 class="blog-more">Read more</h5></a>
-                            </div>
-                        </div>
-                        <div class="blog-item">
-                            <img src="https://cdn-images-1.medium.com/fit/c/400/400/1*P-j2ZSNy2WbIn1dSDjzViA.png" />
-                            <div class="blog-content">
-                                <h6 class="blog-date">April 9 2018</h6>
-                                <h2 class="blog-heading">Good Audience</h2>
-                                <p class="blog-text">The front page of Deep Tech. Don't miss the latest advancements in artificial intelligence, machine learning, and blockchain. Straight from practitioners....</p>
-                                <a href="https://medium.com/good-audience"><h5 class="blog-more">Read more</h5></a>
-                            </div>
-                        </div>
-                        <div class="blog-item">
-                            <img src="https://cdn-images-1.medium.com/fit/c/400/400/1*qosUNwfmfHG_2UB7R81hsw.jpeg" />
-                            <div class="blog-content">
-                                <!-- <h6 class="blog-date">April 9 2018</h6> -->
-                                <h2 class="blog-heading">Bancor</h2>
-                                <p class="blog-text">Bancor is a decentralized liquidity network that provides users with a simple, low-cost way to buy and sell tokens directly through their wallets....</p>
-                                <a href="https://medium.com/bancor"><h5 class="blog-more">Read more</h5></a>
-                            </div>
-                        </div>
+                    <div class="blog-column column-one">
                     </div>
-                    <div class="blog-column">
-                        <div class="blog-item">
-                            <img src="https://cdn-images-1.medium.com/fit/c/400/400/1*H9Olt4-lI3UWf4mdacCbkg.jpeg" />
-                            <div class="blog-content">
-                                <!-- <h6 class="blog-date">April 9 2018</h6>-->
-                                <h2 class="blog-heading">iExec</h2>
-                                <p class="blog-text">The Blockchain-based Decentralized Cloud...</p>
-                                <a href="https://medium.com/iex-ec"><h5 class="blog-more">Read more</h5></a>
-                            </div>
-                        </div>
-                        <div class="blog-item">
-                            <img src="https://cdn-images-1.medium.com/fit/c/400/400/1*BjTw5PqH22BFiwlU28IGpg.png" />
-                            <div class="blog-content">
-                                <!-- <h6 class="blog-date">April 9 2018</h6>-->
-                                <h2 class="blog-heading">quantstamp</h2>
-                                <p class="blog-text">The protocol for securing smart contracts...</p>
-                                <a href="https://medium.com/quantstamp"><h5 class="blog-more">Read more</h5></a>
-                            </div>
-                        </div>
+                    <div class="blog-column column-two">
+
                     </div>
-                    <div class="blog-column">
-                        <div class="blog-item">
-                            <img src="https://cdn-images-1.medium.com/fit/c/400/400/1*Yo_xJUyg2Br7_UYX0j6kIw.png" />
-                            <div class="blog-content">
-                                <!-- <h6 class="blog-date">April 9 2018</h6> -->
-                                <h2 class="blog-heading">Mobius Network</h2>
-                                <p class="blog-text">Connecting Billions of People & Devices to the Blockchain Ecosystem....</p>
-                                <a href="https://medium.com/mobius-network"><h5 class="blog-more">Read more</h5></a>
-                            </div>
-                        </div>
-                        <div class="blog-item">
-                            <img src="https://cdn-images-1.medium.com/fit/c/400/400/1*gzwoBKqHxEL0eeChNjv3zA.png" />
-                            <div class="blog-content">
-                                <!-- <h6 class="blog-date">April 9 2018</h6> -->
-                                <h2 class="blog-heading">The Coinbase Blog</h2>
-                                <p class="blog-text">Learn about working at Coinbase: <a href="https://www.coinbase.com/careers">https://www.coinbase.com/careers...</a></p>
-                                <a href="https://medium.com/the-coinbase-blog"><h5 class="blog-more">Read more</h5></a>
-                            </div>
-                        </div>
+                    <div class="blog-column column-three">
+
                     </div>
                 </div>
             </div>
@@ -502,5 +441,94 @@
 
     btn.addEventListener('click', myFunction)
 </script>
+
+
+
+<script>
+        fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@insightsnetwork')
+           .then((res) => res.json())
+           .then((data) => {
+              // Filter for acctual posts. Comments don't have categories, therefore can filter for items with categories bigger than 0
+              const res = data.items //This is an array with the content. No feed, no info about author etc..
+              let posts = res.filter(item => item.categories.length > 0) // That's the main trick* !
+                posts = posts.map(item => {
+                  const date = item.pubDate;
+                  const js = new Date(date.split(' ')[0])
+                  let year = js.getFullYear()
+                  let month = js.getMonth()
+                  let day = js.getDate()
+                  var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                  const fullDate = `${months[month]} ${day} ${year}`
+                  
+                  return Object.assign({}, item, { pubDate: fullDate})
+                })
+          
+        
+              function toText(node) {
+                 let tag = document.createElement('div')
+                 tag.innerHTML = node
+                 node = tag.innerText
+                 return node
+              }
+              function shortenText(text,startingPoint ,maxLength) {
+                 return text.length > maxLength?
+                 text.slice(startingPoint, maxLength):
+                 text
+              }
+              
+              let i = 0;
+        
+              let fragment1 = document.createDocumentFragment();
+              let fragment2 = document.createDocumentFragment();
+              let fragment3 = document.createDocumentFragment();
+        
+              for(let item of posts) {
+                const div = document.createElement('div');
+                div.classList.add('blog-item');
+                if((/\.(gif|jpg|jpeg|tiff|png)$/i).test(item.thumbnail)) {
+                    const img = document.createElement('img');
+                    img.setAttribute('src', item.thumbnail)
+                    div.appendChild(img);
+                }
+                const content = document.createElement('div');
+                content.classList.add('blog-content');
+                const date = document.createElement('h6');
+                date.classList.add('blog-date');
+                date.textContent = item.pubDate;
+                content.appendChild(date);
+                const heading = document.createElement('h2');
+                heading.classList.add('blog-heading');
+                heading.textContent = item.title;
+                content.appendChild(heading);
+                const text = document.createElement('p');
+                text.classList.add('blog-text');
+                text.textContent = shortenText(toText(item.content), 0, 150);
+                content.appendChild(text);
+                const anchor = document.createElement('a');
+                anchor.setAttribute('href', item.link);
+                const more = document.createElement('h5');
+                more.classList.add('blog-more');
+                more.textContent = 'Read more';
+                anchor.appendChild(more)
+                content.appendChild(anchor);
+                div.appendChild(content)
+                if (i == 0 ) fragment1.appendChild(div);
+                else if(i == 1) fragment2.appendChild(div);
+                else if(i == 2) fragment3.appendChild(div);
+                
+                i < 2 ? i++ : i = 0
+              }
+        
+            const app1 = document.querySelector('.column-one');
+            const app2 = document.querySelector('.column-two');
+            const app3 = document.querySelector('.column-three');
+            app1.appendChild(fragment1);
+            app2.appendChild(fragment2);
+            app3.appendChild(fragment3);
+        
+        })
+        
+        </script>
+
 </body>
 </html>
