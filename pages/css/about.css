@@ -302,15 +302,29 @@ button::-moz-focus-inner,
     border-top: 1px solid #000;
     background: #efefef;
     position: absolute;
-    width: 150px;
+    width: 350px;
     flex-direction: column;
     transition: all 2s ease-in;
     padding: .8rem 1.5rem;
-    z-index: 55;
+    text-align: center;
+    z-index: 99;
+}
+
+.show-menu a {
+    display: block;
+    font-size: 2.5rem;
+    padding: 1.2rem 1rem;
 }
 
 .hide-menu {
     display: none;
+}
+
+@media only screen and (max-width: 800px) {
+    .show-menu {
+        width: 100vw !important;
+    }
+
 }
 
 
@@ -811,6 +825,76 @@ ul  li {
         width: 85%;
     }
 }
+
+
+
+/* privacy*/
+
+.privacy {
+    padding: 8rem 0;
+    width: 100%;
+}
+
+.ml {
+    margin-left: 3rem;
+}
+
+.x-info p:not(:last-child){
+    margin-bottom: 1.2rem;
+}
+
+.sec {
+    margin: 2.5rem 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.sec li {
+    margin-right: 0;
+    border-bottom: 0;
+    padding: 0;
+    letter-spacing: initial;
+    cursor: text;
+    font-family: "AcuminPro-Medium";
+    font-size: 2.3rem;
+    font-weight: 500;
+    color: #000;
+    line-height: 1.5;
+}
+
+.use-info p {
+    margin: .8rem 0;
+}
+
+.high {
+    color: #50bf98;
+}
+
+.bold {
+    font-weight: bold !important;
+}
+
+.privacy-heading {
+    color: #69759c;
+    font-family: "AcuminPro-ExtraLight";
+    font-weight: 400;
+    font-size: 5.2rem;
+    margin-bottom: 6.5rem;
+}
+
+.privacy-text {
+    font-family: "AcuminPro-Medium";
+    font-size: 2.3rem;
+    font-weight: 500;
+    color: #000;
+    line-height: 1.5;
+}
+
+/* footer */
 
 
 /* footer */
