@@ -540,6 +540,9 @@ button::-moz-focus-inner,
 .main-nav,
 .main-nav * {
     z-index: 999 !important;
+}
+
+.main-nav {
     background: transparent;
 }
 
