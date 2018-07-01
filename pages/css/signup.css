@@ -383,12 +383,11 @@ button::-moz-focus-inner,
 
 .mini-container {
     width: 100%;
-    min-width: 350px;
+    min-width: 340px;
     max-width: 550px;
-    padding: 15px;
+    padding: 15px 20px;
     margin: 0 auto;
 }
-
 .mini-col {
     display: flex;
     flex-direction: column;
