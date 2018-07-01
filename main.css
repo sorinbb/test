@@ -650,7 +650,7 @@ button::-moz-focus-inner,
 .green-flex {
     display: flex;
     align-items: flex-start;
-    padding: 3.2rem 0;
+    padding: 3.2rem 2.3rem;
     width: 100%;
 }
 
