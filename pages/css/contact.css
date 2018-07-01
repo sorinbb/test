@@ -283,11 +283,10 @@ button::-moz-focus-inner,
 }
 
 .menu-burger img {
-    width: 38px;
-    height: 38px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 }
-
 
 
 

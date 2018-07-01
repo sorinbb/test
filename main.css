@@ -140,6 +140,7 @@ button::-moz-focus-inner,
     min-width: 100%;
     min-height: 100vh;
     position: relative;
+    overflow: hidden;
 }
 
 #main-video {
@@ -345,8 +346,8 @@ button::-moz-focus-inner,
 }
 
 .menu-burger img {
-    width: 38px;
-    height: 38px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 }
 
@@ -685,11 +686,6 @@ button::-moz-focus-inner,
     }
 }
 
-@media only screen and (max-width: 1100px) {
-    .green-fluid {
-        display: none !important;
-    }
-}
 
 /* Pionner section */
 
@@ -1244,9 +1240,7 @@ button::-moz-focus-inner,
         padding: 4.5rem 0;
     }
 
-    .logos {
-        display: none !important;
-    }
+
 }
 
 @media only screen and (max-width: 500px) {
@@ -1264,6 +1258,12 @@ button::-moz-focus-inner,
     .logo-link {
         font-size: 2.3rem;
     }
+}
+
+@media only screen and (max-width: 780px) {
+   .logos {
+        display: none !important;
+   } 
 }
 
 /* mobile desc */
@@ -1378,7 +1378,7 @@ button::-moz-focus-inner,
 
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 780px) {
     .mobile {
         display: none !important;
     }
@@ -1477,15 +1477,22 @@ button::-moz-focus-inner,
     }
 }
 
+@media only screen and (max-width: 780px) {
+    .subscribe {
+        display: none;
+    }
+
+}
+
 @media only screen and (max-width: 400px) {
-    .subscribe-heading {
-        font-size: 3rem;
+    footer .nav-brand {
+        font-size: 2.3rem;
     }
 
-    .subscribe-subheading {
-        font-size: 2.1rem;
+    .icon-row {
+        width: 80%;
+        max-width: 350px;
     }
-
 }
 
 /* footer */
