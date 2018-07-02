@@ -346,8 +346,8 @@ button::-moz-focus-inner,
 }
 
 .menu-burger img {
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     cursor: pointer;
 }
 
@@ -619,12 +619,14 @@ button::-moz-focus-inner,
 
     .heading-column {
         margin-top: 4rem;
+        padding-left: 12%;
+        padding-right: 10%;
     }
 }
 
 @media only screen and (max-width: 520px) {
     .header-heading {
-        font-size: 3.8rem;
+        font-size: 3.4rem;
     }
     .header-subheading {
         font-size: 2.2rem;
@@ -686,6 +688,11 @@ button::-moz-focus-inner,
     }
 }
 
+@media only screen and (max-width: 780px) {
+    .green-fluid {
+        display: none;
+    }
+}
 
 /* Pionner section */
 
@@ -1477,12 +1484,13 @@ button::-moz-focus-inner,
     }
 }
 
+/*
 @media only screen and (max-width: 780px) {
     .subscribe {
         display: none;
     }
 
-}
+}*/
 
 @media only screen and (max-width: 400px) {
     footer .nav-brand {
@@ -1696,4 +1704,28 @@ footer hr {
         width: 80%;
         max-width: 350px;
     }
+}
+
+
+
+
+
+
+
+
+
+@keyframes fadeLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fade {
+    animation: fadeLeft .8s ease-in-out;
 }

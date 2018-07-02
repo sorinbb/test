@@ -282,8 +282,8 @@ button::-moz-focus-inner,
 }
 
 .menu-burger img {
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     cursor: pointer;
 }
 
@@ -517,7 +517,7 @@ ul  li {
 /* whte paper */
 
 .whitepaper-gray {
-    margin-top: 8rem;
+    margin-top: 5rem;
     background: #fff;
     padding: 3rem;
     border: 2px solid #93a3bd;
@@ -1390,4 +1390,18 @@ footer hr {
         width: 80%;
         max-width: 350px;
     }
+}
+
+.add-link {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-family: "AcuminPro-Semibold";
+    font-weight: 600;
+    font-size: 3rem;
+    margin-top: 4rem;
+}
+
+.add-link:hover {
+    text-decoration: underline;
 }
