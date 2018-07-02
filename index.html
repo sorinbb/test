@@ -10,10 +10,11 @@
     <style>
       #host{
         position: relative;
-        width: 600px;
+        width:600px;
         height: 600px;
-      }
-			canvas { width: 100%; }
+        max-width: 100%!important;
+    }
+			canvas { width: 95%; }
       #result {
         position: absolute;
         width: 360px;
@@ -601,8 +602,9 @@
       if(!url.includes('#IcosahedronGeometry')) {
         window.location.href += '#IcosahedronGeometry';
       }
-      var WIDTH = 600,
-          HEIGHT = 600,
+      var mainEl = document.getElementById('host');
+      var WIDTH = mainEl.clientWidth,
+          HEIGHT = mainEl.clientHeight,
           FOV = 50,
           NEAR = 1,
           FAR = 1000;
@@ -664,7 +666,7 @@
 
     var dotGeometry = new THREE.Geometry();
     dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
-    var dotMaterial = new THREE.PointsMaterial( { size: 1, transparent: true, opacity: 1, sizeAttenuation: true, map: sprite } );
+    var dotMaterial = new THREE.PointsMaterial( { size: 1, transparent: true, color: 0xffffff, opacity: 1, sizeAttenuation: true, map: sprite } );
     var dot = new THREE.Points( dotGeometry, dotMaterial );
     dot.userData = {
       title: texts[i].getElementsByClassName('title')[0].innerHTML, 
@@ -690,11 +692,10 @@
   var mouse = new THREE.Vector2();
 
 function onMouseMove( event ) {
-
-  var element = document.getElementById("host");
-
-  mouse.x = ( event.clientX / 600 ) * 2 - 1;
-  mouse.y = - ( event.clientY / 600 ) * 2 + 1;
+    var canvas = document.getElementsByTagName('canvas')[0];
+    
+mouse.x = ( event.offsetX / canvas.offsetWidth ) * 2 - 1;
+mouse.y = - ( event.offsetY / canvas.offsetHeight ) * 2 + 1;
 
   raycaster.setFromCamera( mouse, camera );
 
@@ -716,12 +717,14 @@ function onMouseMove( event ) {
 function onMouseClick( event ) {
   event.preventDefault();
   translate = {
-    x: event.clientX + 50,
-    y: event.clientY - 80
+    x: event.offsetX + 50,
+    y: event.offsetY - 80
   };
-  mouse.x = ( event.clientX / 600 ) * 2 - 1;
-  mouse.y = - ( event.clientY / 600 ) * 2 + 1;
-
+  var canvas = document.getElementsByTagName('canvas')[0];
+  mouse.x = ( event.offsetX / canvas.clientWidth ) * 2 - 1;
+  mouse.y = - ( event.offsetY / canvas.clientHeight ) * 2 + 1;
+  
+  
   raycaster.setFromCamera( mouse, camera );
   var intersects = raycaster.intersectObjects( scene.children );
 
@@ -750,8 +753,8 @@ function onMouseClick( event ) {
 function onTouch( event ) {
   event.preventDefault();
 
-  mouse.x = (event.changedTouches[0].clientX / 600) * 2 - 1;
-  mouse.y = -(event.changedTouches[0].clientY / 600) * 2 + 1;
+  mouse.x = (event.changedTouches[0].clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.changedTouches[0].clientY / window.innerHeight) * 2 + 1;
 
   raycaster.setFromCamera( mouse, camera );
   var intersects = raycaster.intersectObjects( scene.children );
@@ -780,8 +783,8 @@ function onTouch( event ) {
 
 
 }
-document.getElementById('host').addEventListener( 'mousemove', onMouseMove, false );
-document.getElementById('host').addEventListener( 'mousedown', onMouseClick, false );
+document.getElementsByTagName("canvas")[0].addEventListener( 'mousemove', onMouseMove, false );
+document.getElementsByTagName("canvas")[0].addEventListener( 'mousedown', onMouseClick, false );
 document.getElementsByTagName("canvas")[0].addEventListener("touchstart", onTouch, false);
 
   var options = chooseFromHash( group );
