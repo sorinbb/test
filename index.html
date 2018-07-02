@@ -66,10 +66,9 @@
                 <video autoplay muted loop playsinline id="main-video-two">
                     <source src="./assets/hongkong.mp4" type="video/mp4">
                 </video>
-                <!--
-                <a href="https://play.google.com/store/apps/details?id=com.instar.wallet&hl=en" class="abs-a">
+                <a class="abs-a">
                     <img src="./assets/svg/box.svg" >
-                </a>-->
+                </a>
             </div>
         </header>
     </div>
@@ -434,6 +433,19 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        const el = document.querySelector('.abs-a');
+
+        if (/android/i.test(userAgent)) {
+            el.href = 'https://play.google.com/store/apps/details?id=com.instar.wallet&hl=en'
+        }
+
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            el.href = 'https://itunes.apple.com/app/id1332546984'
+        }
+    </script>
 
 
     <script>
