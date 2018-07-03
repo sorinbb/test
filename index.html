@@ -13,8 +13,19 @@
         width:600px;
         height: 600px;
         max-width: 100%!important;
+        max-height: 100vw;
     }
-			canvas { width: 95%; }
+			canvas { width: 100%; }
+        #result .btn-close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            background: transparent;
+            border: none;
+            font-family: 'Courier New', Courier, monospace;
+            outline: none!important;
+            box-shadow: none!important
+        }
       #result {
         position: absolute;
         width: 360px;
@@ -22,6 +33,24 @@
         padding: 25px;
         opacity: 0;
         transition: .4s;
+        max-width: 100%
+      }
+      @media only screen and (max-width: 600px) {
+        #result {
+            position: fixed;
+            background-color: #fff;
+            padding: 20px;
+            opacity: 0;
+            transition: .4s;
+            top: 0;
+            left: 0;
+            width: 100%
+        }
+        #result::after {
+            display: none!important;
+            content: '';
+            position: absolute;
+        }
       }
       #result::after {
         display: block;
@@ -205,89 +234,53 @@
             </div>
             <div id="host">
                 <div id="result">
+                    <button class="btn-close" onclick="closeMsg()">X</button>
                     <h3 id="title"></h3>
                     <div id="desc"></div>
                 </div>
             </div>
             <div class="message">
-                    <div class="title">Secret Sharing</div>
+                    <div class="title">Identity</div>
                     <div class="content">
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                      <p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
+                      <p>Verified parties are issued committed values that allow participation and ensure a trusted network.</p>
                     </div>
                   </div>
             
                   <div class="message">
-                    <div class="title">Secret Sharing 2</div>
+                    <div class="title">Privacy</div>
                     <div class="content">
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                      <p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-                    </div>
-                  </div>
-            
-                  <div class="message">
-                    <div class="title">Secret Sharing 3</div>
-                    <div class="content">
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                      <p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
+                      <p>Data is encrypted and stored locally or on distributed servers around the world.</p>
                     </div>
                   </div>
             
                   <div class="message">
                     <div class="title">Secret Sharing</div>
                     <div class="content">
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                      <p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
+                      <p>Secret Sharing (SMPC) allows a number of parties to jointly perform computations on private inputs, without releasing information other than that which has been agreed upon. </p>
                     </div>
                   </div>
             
                   <div class="message">
-                    <div class="title">Secret Sharing 4</div>
+                    <div class="title">Data Monetization</div>
                     <div class="content">
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                      <p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout 5</p>
+                      <p>Maintain complete ownership of data and choose the criteria of consent for profitable data exchanges in our marketplace.</p>
                     </div>
                   </div>
             
                   <div class="message">
-                    <div class="title">Secret Sharing 6</div>
+                    <div class="title">On-Chain Reputation</div>
                     <div class="content">
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                      <p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
+                      <p>A rating system that creates a sustainable environment to exchange information where the quality of data and our network improves over time.</p>
                     </div>
                   </div>
             
                   <div class="message">
-                    <div class="title">Secret Sharing 7</div>
+                    <div class="title">Encrypted Computing</div>
                     <div class="content">
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                      <p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
+                      <p>Coming soon ...</p>
                     </div>
                   </div>
             
-                  <div class="message">
-                    <div class="title">Secret Sharing 8</div>
-                    <div class="content">
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                      <p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-                    </div>
-                  </div>
-            
-                  <div class="message">
-                    <div class="title">Secret Sharing 9</div>
-                    <div class="content">
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                      <p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-                    </div>
-                  </div>
-            
-                  <div class="message">
-                    <div class="title">Secret Sharing 10</div>
-                    <div class="content">
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                      <p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-                    </div>
-                  </div>
             <!--
             <video autoplay muted loop playsinline id="shape-video">
                 <source src="./assets/shape.mp4" type="video/mp4">
@@ -603,9 +596,17 @@
         window.location.href += '#IcosahedronGeometry';
       }
       var mainEl = document.getElementById('host');
+
+      if(window.innerWidth > 768) {
+        var FOV = 50,
+        HEIGHT = mainEl.clientHeight;
+      } else {
+        var FOV = 40,
+        HEIGHT = mainEl.clientWidth;
+      }
+
+
       var WIDTH = mainEl.clientWidth,
-          HEIGHT = mainEl.clientHeight,
-          FOV = 50,
           NEAR = 1,
           FAR = 1000;
 
@@ -666,7 +667,7 @@
 
     var dotGeometry = new THREE.Geometry();
     dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
-    var dotMaterial = new THREE.PointsMaterial( { size: 1, transparent: true, color: 0xffffff, opacity: 1, sizeAttenuation: true, map: sprite } );
+    var dotMaterial = new THREE.PointsMaterial( { size: 1.5, transparent: true, color: 0xffffff, opacity: 1, sizeAttenuation: true, map: sprite } );
     var dot = new THREE.Points( dotGeometry, dotMaterial );
     dot.userData = {
       title: texts[i].getElementsByClassName('title')[0].innerHTML, 
@@ -696,7 +697,7 @@ function onMouseMove( event ) {
     
 mouse.x = ( event.offsetX / canvas.offsetWidth ) * 2 - 1;
 mouse.y = - ( event.offsetY / canvas.offsetHeight ) * 2 + 1;
-
+    
   raycaster.setFromCamera( mouse, camera );
 
   var intersects = raycaster.intersectObjects( scene.children );
@@ -705,7 +706,7 @@ mouse.y = - ( event.offsetY / canvas.offsetHeight ) * 2 + 1;
 
   for ( var i = 0; i < intersects.length; i++ ) {
 
-    intersects[0].object.material.color.setHex(0x69759b);
+    intersects[0].object.material.color.setHex(0x50bf97);
   
     setTimeout(function () {
       intersects[0].object.material.color.setHex(0xffffff);
@@ -724,7 +725,6 @@ function onMouseClick( event ) {
   mouse.x = ( event.offsetX / canvas.clientWidth ) * 2 - 1;
   mouse.y = - ( event.offsetY / canvas.clientHeight ) * 2 + 1;
   
-  
   raycaster.setFromCamera( mouse, camera );
   var intersects = raycaster.intersectObjects( scene.children );
 
@@ -736,7 +736,7 @@ function onMouseClick( event ) {
 
   for ( var i = 0; i < intersects.length; i++ ) {
 
-    intersects[0].object.material.color.setHex(0x69759b);
+    intersects[0].object.material.color.setHex(0x50bf97);
     temp = intersects[0].object.userData;
 
     var result = document.getElementById('result');
@@ -752,9 +752,13 @@ function onMouseClick( event ) {
 
 function onTouch( event ) {
   event.preventDefault();
+    var canvas = document.getElementsByTagName('canvas')[0];
+    var host = document.getElementById('host');
+    var diffY = event.changedTouches[0].pageY - host.offsetTop;
 
-  mouse.x = (event.changedTouches[0].clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(event.changedTouches[0].clientY / window.innerHeight) * 2 + 1;
+  var canvas = document.getElementsByTagName('canvas')[0];
+  mouse.x = ( (event.touches[0].clientX - 20) / canvas.clientWidth ) * 2 - 1;
+  mouse.y = - ( diffY / canvas.clientHeight ) * 2 + 1;
 
   raycaster.setFromCamera( mouse, camera );
   var intersects = raycaster.intersectObjects( scene.children );
@@ -766,8 +770,8 @@ function onTouch( event ) {
   }
 
   for ( var i = 0; i < intersects.length; i++ ) {
-
-    intersects[0].object.material.color.setHex(0x69759b);
+    //#50bf97 - green
+    intersects[0].object.material.color.setHex(0x50bf97);
     temp = intersects[0].object.userData;
 
     var result = document.getElementById('result');
@@ -785,7 +789,7 @@ function onTouch( event ) {
 }
 document.getElementsByTagName("canvas")[0].addEventListener( 'mousemove', onMouseMove, false );
 document.getElementsByTagName("canvas")[0].addEventListener( 'mousedown', onMouseClick, false );
-document.getElementsByTagName("canvas")[0].addEventListener("touchstart", onTouch, false);
+document.getElementById("host").addEventListener("touchstart", onTouch, false);
 
   var options = chooseFromHash( group );
 
@@ -797,9 +801,14 @@ document.getElementsByTagName("canvas")[0].addEventListener("touchstart", onTouc
     updateVertices();
     requestAnimationFrame( render );
 
-    if ( ! options.fixed ) {
+    if ( ! options.fixed && window.innerWidth > 768) {
       group.rotation.x += 0.005;
       group.rotation.y += 0.005;
+    } 
+
+    if (window.innerWidth < 768) {
+        group.rotation.x += 0.002;
+        group.rotation.y += 0.002; 
     }
 
     renderer.render( scene, camera );
@@ -821,15 +830,10 @@ document.getElementsByTagName("canvas")[0].addEventListener("touchstart", onTouc
     document.getElementById('result').style.opacity = 0;
   }, false );
 
-  document.getElementById('host').addEventListener('touchstart', function () {
-    options.fixed = true
-  }, false);
-
-  document.getElementById('host').addEventListener('touchend', function () {
-    options.fixed = false
-  }, false);
-
   render();
+  function closeMsg () {
+    document.getElementById('result').style.opacity = 0;
+  }
 		</script>
 
 
