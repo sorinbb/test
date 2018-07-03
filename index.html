@@ -660,6 +660,7 @@
 
   var texts = document.getElementsByClassName('message');
   var nodes = [];
+  var sprts = [];
 
   for(var i = 0, l = texts.length; i < l; ++i){
 
@@ -676,17 +677,50 @@
 
     nodes.push( dot );
     scene.add(nodes[nodes.length - 1]);
+
+    var spritey = makeTextSprite( texts[i].getElementsByClassName('title')[0].innerHTML, 
+    { 
+        fontsize: 70, 
+        backgroundColor: {r:255, g:255, b:255, a:1} 
+    } );
+		//spritey.position = geometry12.vertices[i].clone().multiplyScalar(1.1);
+        spritey.userData = {
+            title: texts[i].getElementsByClassName('title')[0].innerHTML, 
+            content: texts[i].getElementsByClassName('content')[0].innerHTML
+        };
+        sprts.push(spritey);
+
+        scene.add( sprts[sprts.length - 1] );
     
   }
 
   var tempVector = new THREE.Vector3();
+  var tempVector2 = new THREE.Vector3();
+  var tmpPos = new THREE.Vector3(camera.position.x, camera.position.y, camera.position.z);
   function updateVertices(){
       for(var i = 0, l = nodes.length; i < l; ++i){
+        
+        
+
         tempVector.copy(geometry12.vertices[i]);
         nodes[i].position.copy(group.localToWorld(tempVector));
         nodes[i].lookAt(camera.position);
+        
+        //tempPoz.y = 10;
+        tempVector2.copy(geometry12.vertices[i]);
+        var tempPoz = new THREE.Vector3(tempVector2.x - 0.5, tempVector2.y + 0.7, tempVector2.z + 0.5);
+        sprts[i].position.copy(group.localToWorld(tempPoz));
+        sprts[i].lookAt(tempPoz);
+        
+        //console.log(tempPoz);
+
+
+
       }
+      
   }
+
+ 
 
   var raycaster = new THREE.Raycaster();
   
@@ -735,16 +769,18 @@ function onMouseClick( event ) {
   }
 
   for ( var i = 0; i < intersects.length; i++ ) {
+    if(intersects[0].object.type === 'Points') {
+        intersects[0].object.material.color.setHex(0x50bf97);
+        temp = intersects[0].object.userData;
 
-    intersects[0].object.material.color.setHex(0x50bf97);
-    temp = intersects[0].object.userData;
+        var result = document.getElementById('result');
+        result.style.opacity = 1;
+        result.style.transform = 'translateX(' + translate.x + 'px) translateY(' + translate.y + 'px)';
 
-    var result = document.getElementById('result');
-    result.style.opacity = 1;
-    result.style.transform = 'translateX(' + translate.x + 'px) translateY(' + translate.y + 'px)';
-
-    document.getElementById('title').innerHTML  = temp.title
-    document.getElementById('desc').innerHTML  = temp.content
+        document.getElementById('title').innerHTML  = temp.title
+        document.getElementById('desc').innerHTML  = temp.content
+    }
+    
   }
 
 
@@ -770,19 +806,20 @@ function onTouch( event ) {
   }
 
   for ( var i = 0; i < intersects.length; i++ ) {
-    //#50bf97 - green
-    intersects[0].object.material.color.setHex(0x50bf97);
-    temp = intersects[0].object.userData;
+    if(intersects[0].object.type === 'Points') {
+        intersects[0].object.material.color.setHex(0x50bf97);
+        temp = intersects[0].object.userData;
 
-    var result = document.getElementById('result');
-    result.style.opacity = 1;
+        var result = document.getElementById('result');
+        result.style.opacity = 1;
 
-    document.getElementById('title').innerHTML  = temp.title
-    document.getElementById('desc').innerHTML  = temp.content
+        document.getElementById('title').innerHTML  = temp.title
+        document.getElementById('desc').innerHTML  = temp.content
 
-    setTimeout(function () {
-      intersects[0].object.material.color.setHex(0xffffff);
-    }, 2000);
+        setTimeout(function () {
+        intersects[0].object.material.color.setHex(0xffffff);
+        }, 2000);
+    }
   }
 
 
@@ -834,6 +871,65 @@ document.getElementById("host").addEventListener("touchstart", onTouch, false);
   function closeMsg () {
     document.getElementById('result').style.opacity = 0;
   }
+
+  function makeTextSprite( message, parameters )
+{
+	if ( parameters === undefined ) parameters = {};
+	
+	var fontface = parameters.hasOwnProperty("fontface") ? 
+		parameters["fontface"] : "AcuminPro-Light";
+	
+	var fontsize = parameters.hasOwnProperty("fontsize") ? 
+		parameters["fontsize"] : 14;
+	
+	var borderThickness = parameters.hasOwnProperty("borderThickness") ? 
+		parameters["borderThickness"] : 0;
+	
+	var borderColor = parameters.hasOwnProperty("borderColor") ?
+		parameters["borderColor"] : { r:255, g:255, b:255, a:1.0 };
+	
+	var backgroundColor = parameters.hasOwnProperty("backgroundColor") ?
+		parameters["backgroundColor"] : { r:255, g:255, b:255, a:1.0 };
+
+	//var spriteAlignment = parameters.hasOwnProperty("alignment") ?
+	//	parameters["alignment"] : THREE.SpriteAlignment.topLeft;
+
+	//var spriteAlignment = THREE.SpriteAlignment.topLeft;
+		
+
+    var canvas = document.createElement('canvas');
+    var context = canvas.getContext('2d');
+    //context.font = fontsize + "px " + fontface;
+    context.font = "32px " + fontface;
+    context.textAlign = "start";
+
+    context.shadowBlur = 10;
+    context.shadowOffsetX = 0;
+    context.shadowOffsetX = 0;
+    context.shadowColor = "rgba(47, 56, 100, 1)";//"rgba(80, 191, 151, .5)";
+
+	// get size data (height depends only on font size)
+    var metrics = context.measureText( message );
+
+	//context.lineWidth = metrics.width;// borderThickness;
+	// 1.4 is extra height factor for text below baseline: g,j,p,q.
+	
+	// text color
+	context.fillStyle = "rgba(255, 255, 255, 1.0)";
+    //context.fillText( message, borderThickness, fontsize + borderThickness);
+    
+    context.fillText( message, 10, 100);
+	// canvas contents will be used for a texture
+    var texture = new THREE.Texture(canvas) 
+    texture.minFilter = THREE.LinearFilter
+	texture.needsUpdate = true;
+
+	var spriteMaterial = new THREE.SpriteMaterial( 
+		{ map: texture, } );
+	var sprite = new THREE.Sprite( spriteMaterial );
+	sprite.scale.set(5,2.5,0);
+	return sprite;	
+}
 		</script>
 
 
