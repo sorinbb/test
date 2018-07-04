@@ -14,6 +14,10 @@
         height: 600px;
         max-width: 100%!important;
         max-height: 100vw;
+        background-image: url('/bg_shape.png');
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 			canvas { width: 100%; }
         #result .btn-close {
@@ -73,6 +77,9 @@
       }
       .dg.ac {
         display: none!important
+      }
+      img.shape {
+          max-width: 100%;
       }
 		</style>
 </head>
@@ -233,6 +240,7 @@
                 </div>
             </div>
             <div id="host">
+                <!-- <img src="/assets/shape.png" class="shape" alt="Shape"> -->
                 <div id="result">
                     <button class="btn-close" onclick="closeMsg()">X</button>
                     <h3 id="title"></h3>
@@ -644,8 +652,8 @@
   var geometry = new THREE.BufferGeometry();
   geometry.addAttribute( 'position', new THREE.Float32BufferAttribute( [], 3 ) );
 
-  var lineMaterial = new THREE.LineBasicMaterial( { color: 0xffffff, transparent: true, opacity: 0.5 } );
-  var meshMaterial = new THREE.MeshPhongMaterial( { color: 0x848eac, emissive: 0x69759b, side: THREE.DoubleSide, flatShading: false} );
+  var lineMaterial = new THREE.LineBasicMaterial( { color: 0xffffff, transparent: true, opacity: 0.3 } );
+  var meshMaterial = new THREE.MeshPhongMaterial( { color: 0x848eac, emissive: 0x69759b, flatShading: false, transparent: true, opacity: 0.5} );
 
   var material = new THREE.MeshBasicMaterial({
     color: 0x69759b,
@@ -666,9 +674,11 @@
 
     var sprite = new THREE.TextureLoader().load( 'disc.png' );
 
+    
+
     var dotGeometry = new THREE.Geometry();
     dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
-    var dotMaterial = new THREE.PointsMaterial( { size: 1.5, transparent: true, color: 0xffffff, opacity: 1, sizeAttenuation: true, map: sprite } );
+    var dotMaterial = new THREE.PointsMaterial( { size: 1, transparent: true, alpha: true, color: 0xffffff, opacity: 1, sizeAttenuation: true, map: sprite } );
     var dot = new THREE.Points( dotGeometry, dotMaterial );
     dot.userData = {
       title: texts[i].getElementsByClassName('title')[0].innerHTML, 
@@ -703,12 +713,13 @@
         
 
         tempVector.copy(geometry12.vertices[i]);
+        var tempPoz2 = new THREE.Vector3(tempVector.x, tempVector2.y, tempVector2.z + 0.5);
         nodes[i].position.copy(group.localToWorld(tempVector));
         nodes[i].lookAt(camera.position);
         
         //tempPoz.y = 10;
         tempVector2.copy(geometry12.vertices[i]);
-        var tempPoz = new THREE.Vector3(tempVector2.x - 0.5, tempVector2.y + 0.7, tempVector2.z + 0.5);
+        var tempPoz = new THREE.Vector3(tempVector2.x - 0.5, tempVector2.y + 0.7, tempVector2.z + 2);
         sprts[i].position.copy(group.localToWorld(tempPoz));
         sprts[i].lookAt(tempPoz);
         
@@ -839,7 +850,7 @@ document.getElementById("host").addEventListener("touchstart", onTouch, false);
     requestAnimationFrame( render );
 
     if ( ! options.fixed && window.innerWidth > 768) {
-      group.rotation.x += 0.005;
+      group.rotation.x += 0.002;
       group.rotation.y += 0.005;
     } 
 
@@ -847,6 +858,7 @@ document.getElementById("host").addEventListener("touchstart", onTouch, false);
         group.rotation.x += 0.002;
         group.rotation.y += 0.002; 
     }
+
 
     renderer.render( scene, camera );
 
@@ -886,10 +898,10 @@ document.getElementById("host").addEventListener("touchstart", onTouch, false);
 		parameters["borderThickness"] : 0;
 	
 	var borderColor = parameters.hasOwnProperty("borderColor") ?
-		parameters["borderColor"] : { r:255, g:255, b:255, a:1.0 };
+		parameters["borderColor"] : { r:255, g:255, b:255, a:0 };
 	
 	var backgroundColor = parameters.hasOwnProperty("backgroundColor") ?
-		parameters["backgroundColor"] : { r:255, g:255, b:255, a:1.0 };
+		parameters["backgroundColor"] : { r:255, g:255, b:255, a:0 };
 
 	//var spriteAlignment = parameters.hasOwnProperty("alignment") ?
 	//	parameters["alignment"] : THREE.SpriteAlignment.topLeft;
@@ -903,10 +915,10 @@ document.getElementById("host").addEventListener("touchstart", onTouch, false);
     context.font = "32px " + fontface;
     context.textAlign = "start";
 
-    context.shadowBlur = 10;
+    context.shadowBlur = 12;
     context.shadowOffsetX = 0;
     context.shadowOffsetX = 0;
-    context.shadowColor = "rgba(47, 56, 100, 1)";//"rgba(80, 191, 151, .5)";
+    context.shadowColor = "rgba(255, 255, 255, 0.5)";//"rgba(80, 191, 151, .5)";
 
 	// get size data (height depends only on font size)
     var metrics = context.measureText( message );
