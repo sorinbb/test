@@ -628,7 +628,7 @@ button::-moz-focus-inner,
     }
 
     .header-subheading {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 }
 
@@ -636,7 +636,7 @@ button::-moz-focus-inner,
 
 @media only screen and (max-width: 400px) {
     .header-subheading {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 }
 
@@ -1708,8 +1708,21 @@ footer hr {
 }
 
 
+@media only screen and (max-width: 540px) {
+   .d-none-xs {
+        display: none;
+    } 
+}
 
+.d-only-xs {
+    display: none;
+}
 
+@media only screen and (max-width: 540px) {
+   .d-only-xs {
+        display: initial;
+    } 
+}
 
 
 
